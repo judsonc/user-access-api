@@ -7,10 +7,19 @@ const {
   PG_PASSWORD,
   PG_HOST,
   PG_PORT,
+  NODE_ENV,
 } = constant;
+
+const dialectOptions = NODE_ENV === "production" ? {
+  ssl: {
+    require: true,
+    rejectUnauthorized: false,
+  }
+} : {}
 
 const config = {
   dialect: "postgres",
+  dialectOptions,
   logging: false,
   define: {
     underscored: true,
