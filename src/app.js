@@ -1,7 +1,7 @@
 import { serve, setup } from "swagger-ui-express";
 import express, { json } from "express";
 import morgan from "morgan";
-import openApi from "../openapi";
+import openApi from "./openapi";
 import routers from "./routers";
 
 const app = express();

@@ -1,4 +1,4 @@
-import constant from "../src/config/constant";
+import constant from "../config/constant";
 
 const { PORT, APP_NAME } = constant;
 
