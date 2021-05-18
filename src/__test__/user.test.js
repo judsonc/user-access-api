@@ -34,20 +34,20 @@ describe("Test User Router", () => {
 		);
 	})
 
-	// it("GET /api/users", async () => {
-	// 	const response = await supertest(app).get("/api/users");
+	it("GET /api/users", async () => {
+		const response = await supertest(app).get("/api/users");
 
-	// 	expect(response.statusCode).toEqual(200);
-	// 	expect(response.body).toHaveProperty("users");
-	// 	expect(response.body.users).toEqual(expect.any(Array));
-	// })
+		expect(response.statusCode).toEqual(200);
+		expect(response.body).toHaveProperty("users");
+		expect(response.body.users).toEqual(expect.any(Array));
+	})
 
-	// it("GET /api/users/uuid - not found", async () => {
-	// 	const uuid = faker.datatype.uuid()
-	// 	const response = await supertest(app).get(`/api/users/${uuid}`);
-	// 	expect(response.statusCode).toEqual(400);
-	// 	expect(response.body).toMatchObject(NOT_FOUND_FAIL);
-	// })
+	it("GET /api/users/uuid - not found", async () => {
+		const uuid = faker.datatype.uuid()
+		const response = await supertest(app).get(`/api/users/${uuid}`);
+		expect(response.statusCode).toEqual(400);
+		expect(response.body).toMatchObject(NOT_FOUND_FAIL);
+	})
 
 	it("GET /api/users/uuid - incorrect uuid", async () => {
 		const incorrectUuid = faker.lorem.slug()
