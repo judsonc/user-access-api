@@ -42,12 +42,12 @@ describe("Test User Router", () => {
 	// 	expect(response.body.users).toEqual(expect.any(Array));
 	// })
 
-	it("GET /api/users/uuid - not found", async () => {
-		const uuid = faker.datatype.uuid()
-		const response = await supertest(app).get(`/api/users/${uuid}`);
-		expect(response.statusCode).toEqual(400);
-		expect(response.body).toMatchObject(NOT_FOUND_FAIL);
-	})
+	// it("GET /api/users/uuid - not found", async () => {
+	// 	const uuid = faker.datatype.uuid()
+	// 	const response = await supertest(app).get(`/api/users/${uuid}`);
+	// 	expect(response.statusCode).toEqual(400);
+	// 	expect(response.body).toMatchObject(NOT_FOUND_FAIL);
+	// })
 
 	it("GET /api/users/uuid - incorrect uuid", async () => {
 		const incorrectUuid = faker.lorem.slug()
