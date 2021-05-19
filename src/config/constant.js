@@ -1,5 +1,5 @@
 const {
-	PG_DB = "user-access",
+	PG_DB = "postgres",
 	PG_USER = "postgres",
 	PG_PASSWORD = "postgres",
 	PG_HOST = "localhost",

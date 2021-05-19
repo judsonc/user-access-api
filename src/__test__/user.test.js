@@ -1,7 +1,6 @@
 import supertest from "supertest";
 import faker from "faker";
 import app from "../app";
-import repository from "../repositories/user";
 import { NOT_FOUND_FAIL } from "../config/error";
 
 describe("Test User Router", () => {
@@ -15,7 +14,7 @@ describe("Test User Router", () => {
 			.post("/api/users")
 			.send(user);
 
-		expect(response.statusCode).toEqual(400);
+		expect(response.statusCode).toEqual(201);
 	})
 
 	it("POST /api/users - incorrect email", async () => {
@@ -45,7 +44,7 @@ describe("Test User Router", () => {
 	it("GET /api/users/uuid - not found", async () => {
 		const uuid = faker.datatype.uuid()
 		const response = await supertest(app).get(`/api/users/${uuid}`);
-		expect(response.statusCode).toEqual(400);
+		expect(response.statusCode).toEqual(404);
 		expect(response.body).toMatchObject(NOT_FOUND_FAIL);
 	})
 
